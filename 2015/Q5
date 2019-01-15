@@ -1,0 +1,77 @@
+
+package Q5;
+
+public class CreditCard {
+    protected String holderName;
+    protected String cardNumber;
+    protected String cardType;
+    protected double totalCashReward;
+
+    public CreditCard(String holderName, String cardNumber, String cardType) {
+        this.holderName = holderName;
+        this.cardNumber = cardNumber;
+        this.cardType = cardType;
+    }
+
+    public double getTotalCashReward() {
+        return totalCashReward;
+    }
+
+    public void setTotalCashReward(double totalCashReward) {
+        this.totalCashReward = totalCashReward;
+    }
+    
+    public String toString() {
+        return "Credit Card : " + holderName + "(" + cardNumber + ")"
+                + "\n" + " Card Type : " + cardType;
+    }
+    
+    
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Point extends CreditCard {
+    
+    public Point(String holderName, String cardNumber, String cardType) {
+        super(holderName, cardNumber, cardType);
+    }
+    
+    public double getReward() {
+        
+    }
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Rebate extends CreditCard {
+    
+    public Rebate(String holderName, String cardNumber, String cardType) {
+        super(holderName, cardNumber, cardType);
+    }
+    
+    public double getReward() {
+        if (type == "Fuel") {
+            
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Rebate r = new Rebate ("John Lim", "1111222233334444");
+        Point p = new Point ("John Lum", "5555666677778888")
+    }
+    
+}
+
+

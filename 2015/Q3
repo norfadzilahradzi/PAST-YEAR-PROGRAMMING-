@@ -1,0 +1,115 @@
+package Q3;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Q3 {
+
+    public static void main(String[] args) {
+        
+        
+        Scanner s = new Scanner(System.in);
+        Random r = new Random();
+        
+        System.out.print("Enter the number of random integer: ");
+        int num = s.nextInt();
+        
+        int[] randNum = new int[num];
+        for (int i=0; i<randNum.length; i++) {
+            randNum[i] = 0+r.nextInt(1001);
+        }
+        
+        System.out.print("The random integer : ");
+        displayInteger(randNum);
+        System.out.println();
+        
+        System.out.print("Maximum number : ");
+        maxNum(randNum);
+        System.out.println();
+        
+//        System.out.print("The approximation of integer to the nearest tenth : ");
+//        roundOff(randNum);
+//        System.out.println();
+        
+        System.out.print("The random integer in reverse order : ");
+        reverseArray(randNum);
+        System.out.println();
+        
+     }
+    
+    public static void displayInteger(int[] a) {
+       for (int i=0; i<a.length; i++) {
+           System.out.print(a[i] + "  ");
+       }
+    }
+    
+    public static void maxNum(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            int max = a[0];
+            if ( a[i] > max) {
+                max = a[i];
+                System.out.print(max);
+            }
+    }
+    }
+    
+    public static void roundOff(int[] a) {
+     for (int i=0; i<a.length; i++) {
+         if (a[i] % 10 >= 5) {
+             a[i] = a[i] + (10 - a[i] % 10);
+         }
+         else {
+             a[i] = a[i] - (a[i] % 10);
+         }
+         System.out.print(a[i] + "  ");
+     }
+    }
+    
+    public static void reverseArray(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            int reverse = 0;
+            while (a[i] != 0) {
+                reverse = reverse * 10;
+                reverse = reverse + a[i] % 10;
+                a[i] = a[i] / 10;      
+            }
+            System.out.print(reverse + "  ");
+    }
+    }
+    
+}
+
+--------------------------------------------------------------------------------
+
+
+package Q3;
+
+import java.util.Scanner;
+
+public class FromLab {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Enter substrings");
+        String word1 = s.next();
+        String word2 = s.next();
+        String sentence;
+        
+        do {
+        System.out.print("Enter sentence : ");
+        sentence = s.next();
+        
+        
+        if (sentence.toLowerCase().contains(word1)) {
+            System.out.println(word1 + " found");
+        }
+        
+        if (sentence.toLowerCase().contains(word2)) {
+            System.out.println(word2 + " found ");
+        }
+        } while (!(sentence.equals("stop")));
+    }
+    
+}
+

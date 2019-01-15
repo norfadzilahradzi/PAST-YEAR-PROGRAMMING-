@@ -1,0 +1,25 @@
+package Q2;
+
+import java.util.Scanner;
+
+public class Q2 {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        System.out.print("Enter the inital tuition fee (i.e year 1): ");
+        int fee = s.nextInt();
+        System.out.print("Enter the yearly rate of increment (e.g enter 5.2 for 5.2%): ");
+        double incre = s.nextDouble();
+        System.out.print("Enter the year for which you wish to compute the tuition fee: ");
+        int year = s.nextInt();
+        System.out.println();
+        computeFee(fee, incre, year);
+    }
+    
+    public static void computeFee(int a, double b, int c) {
+        double compute = (b/100)*a*(c-1)+a;
+        System.out.println("Computed tuition fee for year " + c + " is: " + compute);
+    }
+    
+}

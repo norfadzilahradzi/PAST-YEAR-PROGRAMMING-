@@ -1,0 +1,77 @@
+package Q3;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Q3 {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Random r = new Random();
+        
+        System.out.print("Enter the number of random integer : ");
+        int num = s.nextInt();
+        System.out.print("The random integer : ");
+        int[] randNum = new int[num];
+        
+        for (int i=0; i<num; i++) {            
+            randNum[i] = 0+r.nextInt(10001);
+        }
+        displayInteger(randNum);
+        
+        System.out.println();
+        System.out.print("Minimum Number : ");
+        minNum(randNum);
+        
+        System.out.println();
+        System.out.print("The approximation of the integer to the nearest hundred : ");
+        roundOff(randNum);
+        
+        System.out.println();
+        System.out.print("The random integer in reverse order : ");
+        reverseArray(randNum);
+    }
+    
+    public static void displayInteger(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            System.out.print(a[i] + "  ");
+        }
+    }
+    
+    public static void minNum(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            int min = a[0];
+            if (a[i] < min) {
+                min = a[i];
+                System.out.print(min);
+            } 
+        } 
+    }
+    
+    public static void roundOff(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            if ((a[i] % 100) / 10 >= 5) {
+                a[i] = a[i] + (100 - a[i] % 100);
+            }
+            else {
+               a[i] = a[i] - a[i] % 100;
+            }
+            System.out.print(a[i] + "  ");
+        }
+    }
+    
+    public static void reverseArray(int[] a) {
+        for (int i=0; i<a.length; i++) {
+            int rev = 0;
+            while (a[i] != 0) {
+                rev = rev * 10; 
+                rev = rev + a[i] % 10;
+                a[i] = a[i] / 10;
+            }
+            System.out.print(rev + "  ");
+        }
+    }
+     
+    
+}
+

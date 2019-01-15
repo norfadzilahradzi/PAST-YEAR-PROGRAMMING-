@@ -1,0 +1,37 @@
+package Q2;
+
+import java.util.Scanner;
+
+public class Q2 {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int k=1;
+        
+        System.out.print("Enter number of team : ");
+        int num = s.nextInt();
+        
+        String[] teamName = new String[num];
+        int[] teamScore = new int[num];
+        do {
+            for (int i=0; i<num; i++) {
+                
+                System.out.print("Enter team " + (i+1) + " name : ");
+                teamName[i] = s.next();
+                
+                System.out.print("Enter team " + (i+1) + " score : ");
+                teamScore[i] = s.nextInt();
+                
+                k++;  
+            }
+            
+            System.out.println("List of the team with the highest team score first");
+            
+            for (int i = teamScore.length-1; i>=0; i--) {
+                System.out.print(teamName[i] + " (" + teamScore[i] + ") " + "| ");
+                     
+            }
+        }while(!(k > num));
+    }
+    
+}

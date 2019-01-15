@@ -1,0 +1,92 @@
+package Q5;
+
+public class Staff {
+    private String staffName;
+    private String staffIC;
+
+    public Staff(String staffName, String staffIC) {
+        this.staffName = staffName;
+        this.staffIC = staffIC;
+    }
+    
+    public String toString() {
+        return "Full name : " + this.staffName + "\n" +
+               "IC : " + this.staffIC;
+                
+    }
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class PermanentStaff extends Staff {
+    private String grade;
+
+    public PermanentStaff(String staffName, String staffIC, String grade) {
+        super(staffName, staffIC);
+        this.grade = grade;
+    }
+    
+    public int getSalary() {
+        if (grade.equals("EM01")) {
+            return 7000;
+        }
+        else if (grade.equals("EM02")) {
+            return 5000;
+        }
+        else if (grade.equals("EM03")) {
+            return 3000;
+        }
+        else if (grade.equals("EM04")) {
+            return 1000;
+        }
+        else {
+            return 0;
+        }
+    }
+    
+    public String toString() {
+        return super.toString() + "\nGrade : " + grade + "\n" +
+               "Salary : RM " + getSalary();
+    }
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class PartTimeStaff extends Staff {
+    private int workingHours;
+
+    public PartTimeStaff(String staffName, String staffIC,  int workingHours) {
+        super(staffName, staffIC);
+        this.workingHours = workingHours;
+    }
+    
+    public int getSalary() {
+        return workingHours*40;
+    }
+    
+    public String toString() {
+        return super.toString() + "\nNumber of working hours : " + workingHours + "\n" +
+               "Salary : RM " + getSalary();
+    }
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Main {
+    
+    public static void main (String[] args) {
+        
+    PermanentStaff p1 = new PermanentStaff("Abdul Razak", "871001-14-1765", "EM02");
+    PartTimeStaff p2 =  new PartTimeStaff("Tengku Ali", "911223-08-3301", 35);
+    
+    System.out.println(p1.toString());
+    System.out.println();
+    System.out.println(p2.toString()); 
+    }
+}

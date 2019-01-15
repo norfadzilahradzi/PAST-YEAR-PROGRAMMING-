@@ -1,0 +1,84 @@
+package Q2;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Q2 {
+
+    public static void main(String[] args) {
+        Random r = new Random();
+        Scanner s = new Scanner(System.in);int totalComp = 1;
+        int totalPlayer = 1;
+        
+        do {               
+        System.out.print("Enter 1.Paper 2.Scissor 3.Rock: ");
+        int player = s.nextInt();
+        int randNum = 1+r.nextInt(3);
+        
+        if(player == 1) {
+            System.out.print("Player : Paper ----- ");
+            
+            if (randNum == 1) {
+                System.out.print("Computer : Paper\n");
+            }
+            else if (randNum == 2) {
+                System.out.print("Computer : Scissor\n");
+                System.out.println("Computer win " + totalComp + " time(s)");
+                totalComp++;
+            }
+            else if (randNum == 3) {
+                System.out.print("Computer : Rock\n");
+                System.out.println("Player win " + totalPlayer + " time(s)");
+                totalPlayer++;
+            }
+            
+        }
+        
+        else if (player == 2) {
+            System.out.print("Player : Scissor ----- ");
+            
+            if (randNum == 1) {
+                System.out.print("Computer : Paper\n");
+                System.out.println("Player win " + totalPlayer + " time(s)");
+                totalPlayer++;
+            }
+            else if (randNum == 2) {
+                System.out.print("Computer : Scissor\n");
+            }
+            else if (randNum == 3) {
+                System.out.print("Computer : Rock\n");
+                System.out.println("Computer win " + totalComp + " time(s)");
+                totalComp++;
+            }            
+        }
+        
+        else if (player == 3) {
+            System.out.print("Player : Rock ----- ");
+            
+            if (randNum == 1) {
+                System.out.print("Computer : Paper\n");
+                System.out.println("Computer win " + totalComp + " time(s)");
+                totalComp++;
+            }
+            else if (randNum == 2) {
+                System.out.print("Computer : Scissor\n");
+                System.out.println("Player win " + totalPlayer + " time(s)");
+                totalPlayer++;
+            }
+            else if (randNum == 3) {
+                System.out.print("Computer : Rock\n");
+            }
+        } 
+        
+        } while (!(totalPlayer > 3 || totalComp > 3));
+        
+        if (totalPlayer == 3) {
+            System.out.println("Player wins the game.");
+        }
+        else if (totalComp == 3) {
+            System.out.println("Computer wins the game.");
+        }
+    }
+    
+}
+
