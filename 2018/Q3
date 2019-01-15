@@ -1,0 +1,44 @@
+package Q3;
+
+import java.util.Scanner;
+
+public class Q3 {
+
+    public static void main(String[] args) {
+//        getInput();
+//        eightDigital(getInput());
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter font size : ");
+        int size = s.nextInt();
+        System.out.print("Enter font type : ");
+        String shape = s.next();
+        char type = shape.charAt(0);
+        System.out.print("Enter format [1 - vertical, 2 - Horizontal] : ");
+        int format = s.nextInt();
+        
+        eightDigital(size, type, format);
+    }
+    
+//    public static void getInput() {
+//        Scanner s = new Scanner(System.in);
+//        System.out.print("Enter font size : ");
+//        int size = s.nextInt();
+//        System.out.print("Enter font type : ");
+//        String shape = s.next();
+//        char type = shape.charAt(0);
+//        System.out.print("Enter format [1 - vertical, 2 - Horizontal] : ");
+//        int format = s.nextInt();
+//        
+//    }
+    
+    public static void eightDigital(int a, char b, int c) {
+        for (int i=0; i<a; i++) {
+            for (int j=0; j<a; j++) {
+                System.out.println(b);
+            }
+        }
+    }
+    
+}
+

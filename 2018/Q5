@@ -1,0 +1,147 @@
+package Q5;
+
+public abstract class Fruit {
+    protected String fruitName;
+    protected String fruitType;
+
+    public Fruit(String fruitName, String fruitType) {
+        this.fruitName = fruitName;
+        this.fruitType = fruitType;
+    }
+    
+    public abstract double totalPrice();
+    
+    public String toString() {
+        return "Fruit Name : " + fruitName + "\n" +
+                "Fruit type : " + fruitType;
+    }
+            
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Apple extends Fruit {
+    protected int quantityApple;
+
+    public Apple(int quantityApple, String fruitName, String fruitType) {
+        super(fruitName, fruitType);
+        this.quantityApple = quantityApple;
+    }
+
+    @Override
+    public double totalPrice() {
+        if (fruitType.equals("green"))
+            return quantityApple*1.2;
+        else if (fruitType.equals("red")) 
+            return quantityApple*1.8;
+        else {
+            return 0;
+        }
+    }
+    
+    public String toString() {
+        
+        if (fruitType.equals("green")) 
+            return "Green apple - " + quantityApple + " = " + "RM" + this.totalPrice();
+        
+        
+        if (fruitType.equals("red")) 
+            return "Red apple - " + quantityApple + " = " + "RM" + this.totalPrice();
+        return null;
+        
+    }
+}
+
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Watermelon extends Fruit {
+    protected double weightWatermelon;
+
+    public Watermelon(double weightWatermelon, String fruitName, String fruitType) {
+        super(fruitName, fruitType);
+        this.weightWatermelon = weightWatermelon;
+    }
+
+    @Override
+    public double totalPrice() {
+        if (fruitType.equals("local")) {
+            if (weightWatermelon > 5) 
+                return weightWatermelon*1.65;
+            else if (weightWatermelon > 2)
+                return weightWatermelon*1.95;
+            else 
+                return weightWatermelon*2.25;
+            }
+        else if (fruitType.equals("imported")) {
+            if (weightWatermelon > 5) 
+                return weightWatermelon*3.15;
+            else if (weightWatermelon > 2)
+                return weightWatermelon*3.45;
+            else 
+                return weightWatermelon*3.75;
+            }
+        else 
+            return 0;
+        }
+    
+    
+    public String toString() {
+        if (fruitType.equals("local"))
+            return "Local watermelon - " + weightWatermelon + "kg = RM" + this.totalPrice();
+        if (fruitType.equals("imported"))
+            return "Imported watermelon - " + weightWatermelon + "kg = RM" + this.totalPrice();
+        return null;
+
+    }
+
+}
+
+--------------------------------------------------------------------------------
+
+package Q5;
+
+public class Tester {
+
+    public static void main(String[] args) {
+        
+        double min;
+        
+        Apple a = new Apple(8, "Apple", "red");
+        a.totalPrice();
+        System.out.println(a.toString());
+        
+        Apple b = new Apple(11, "Apple", "green");
+        b.totalPrice();
+        System.out.println(b.toString());
+        
+        Watermelon w = new Watermelon(7.6, "Watermelon", "local");
+        w.totalPrice();
+        System.out.println(w.toString());
+        
+        Watermelon m = new Watermelon(4, "Watermelon", "imported");
+        m.totalPrice();
+        System.out.println(m.toString());
+        
+        min = a.totalPrice();
+        if (b.totalPrice() < min) {
+            min = b.totalPrice();
+        }
+        if (w.totalPrice() < min) {
+            min = w.totalPrice();
+        }
+        if (m.totalPrice() < min) {
+            min = m.totalPrice();
+        }
+        System.out.println("The cheaperst item is : RM" + min);
+        
+
+        
+        
+    }
+    
+}
